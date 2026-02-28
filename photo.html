@@ -8,90 +8,199 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-QE6S6P05LS');
 </script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lucrum Design | Photo </title>
+<title>Lucrum Design | Photo</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 
-<link href="css/styles.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
-<script type="text/javascript" src="script/prototype.js"></script>
-<script type="text/javascript" src="script/scriptaculous.js?load=effects,builder"></script>
-<script type="text/javascript" src="script/lightbox.js"></script>
-
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+#lb-overlay {
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85); z-index: 9000;
+}
+#lb-box {
+  display: none; position: fixed; z-index: 9001;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  text-align: center; max-width: 92vw;
+}
+#lb-img { max-width: 88vw; max-height: 80vh; border: 10px solid #fff; display: block; margin: 0 auto; }
+#lb-caption { color: #ddd; font-family: Arial, sans-serif; font-size: 12px; margin-top: 8px; max-width: 88vw; }
+#lb-counter  { color: #aaa; font-family: Arial, sans-serif; font-size: 11px; margin-top: 4px; }
+#lb-close {
+  display: none; position: fixed; top: 16px; right: 20px;
+  color: #fff; font-size: 32px; cursor: pointer; z-index: 9002;
+  font-family: Arial, sans-serif; line-height: 1;
+}
+#lb-prev, #lb-next {
+  display: none; position: fixed; top: 50%; transform: translateY(-50%);
+  color: #fff; font-size: 48px; cursor: pointer; z-index: 9002;
+  padding: 8px 14px; user-select: none; font-family: Arial, sans-serif;
+  background: rgba(0,0,0,0.35);
+}
+#lb-prev { left: 10px; } #lb-next { right: 10px; }
+#lb-prev:hover, #lb-next:hover { background: rgba(0,0,0,0.65); }
+</style>
 </head>
-
 <body>
-<div class="maincontainer">
-  <div class="left">
-    <div class="navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="graphic.html">Graphic</a></li>
-        <li><a href="photo.html" class="onpage">Photo</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="right">
-    <div class="headshowcase"><a name="top" id="top"></a></div>
-    <div class="maincontent">
-    </div>
-    <div class="workdisplay">
-      <table width="300" border="0" cellspacing="0" cellpadding="2">
-        <tr>
-          <td><a class="th" href="images/photo/1.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/1.png" alt="1" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/2.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/2.png" alt="2" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/3.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/3.png" alt="3" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/4.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/4.png" alt="4" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/17.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/17.png" alt="4" width="100" height="100" border="0" /></a></td>
-        </tr>
-        <tr>
-          <td><a class="th" href="images/photo/5.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/5.png" alt="5" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/6.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/6.png" alt="6" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/7.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/7.png" alt="7" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/8.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/8.png" alt="8" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/18.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/18.png" alt="4" width="100" height="100" border="0" /></a></td>
-        </tr>
-        <tr>
-          <td><a class="th" href="images/photo/9.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/9.png" alt="9" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/10.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/10.png" alt="10" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/11.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/11.png" alt="11" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/12.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/12.png" alt="12" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/19.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/19.png" alt="4" width="100" height="100" border="0" /></a></td>
-        </tr>
-        <tr>
-          <td><a class="th" href="images/photo/13.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/13.png" alt="13" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/14.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/14.png" alt="14" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/15.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/15.png" alt="15" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/16.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/16.png" alt="16" width="100" height="100" border="0" /></a></td>
-          <td><a class="th" href="images/photo/20.jpg" rel="lightbox[S]" title=""><img src="images/thumb2/20.png" alt="4" width="100" height="100" border="0" /></a></td>
-        </tr>
-      </table>
-      <p>*Photographs are available for purchase upon request.</p>
-      <p>&nbsp;</p>
-    </div>
-    <!-- alternate footer
-    <div class="footer">
-      <p><a href="">Blog</a> / <a href="http://twitter.com/username">Twitter</a> / <a href="">Linkedin</a></p>
-      <p>&nbsp;</p></div> -->
 
-     <div id="footer">
-    <ul>
-      <li class="copyright"><a href="http://lucrumdesign.com/photo.html"><br></a></li>
-      <li class="twitter"><a href="http://instagram.com/kolect" target="_blank"></a></li>
-      <li class="press"><a href="http://twitter.com/share?text=For%20your%20photographic%20needs,%20check%20out&amp;url=http://LucrumDesign.com" target="_blank"></a></li>
-      <li class="help"><a href="mailto:info@lucrumdesign.com"></a></li>
-      <li>&nbsp;</li>
-      <li><font size="3" color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info@lucrumdesign.com</font></li>
-    </ul>
-  </div>
+<div id="lb-overlay"></div>
+<div id="lb-close">&#215;</div>
+<div id="lb-prev">&#8249;</div>
+<div id="lb-next">&#8250;</div>
+<div id="lb-box">
+  <img id="lb-img" src="" alt="" />
+  <div id="lb-caption"></div>
+  <div id="lb-counter"></div>
 </div>
+
+<div class="maincontainer">
+
+    <div class="siteheader offset">
+    <img class="logo" src="images/head_lucrum.png" alt="Lucrum Design" />
+    <img class="tagline" src="images/tag.png" alt="Web | Brand Identity | Graphics" />
+  </div>
+
+  <div class="contentrow">
+    <div class="left">
+      <div class="navigation">
+        <ul>
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="about.html" >About us</a></li>
+          <li><a href="graphic.html" >Graphic</a></li>
+          <li><a href="photo.html" class="onpage">Photo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <div class="workdisplay">
+        <table border="0" cellspacing="0" cellpadding="2">
+          <tr>
+            <td><a class="th lb-trigger" href="images/photo/1.jpg" data-group="S" data-title=""><img src="images/thumb2/1.png" alt="1" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/2.jpg" data-group="S" data-title=""><img src="images/thumb2/2.png" alt="2" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/3.jpg" data-group="S" data-title=""><img src="images/thumb2/3.png" alt="3" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/4.jpg" data-group="S" data-title=""><img src="images/thumb2/4.png" alt="4" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/17.jpg" data-group="S" data-title=""><img src="images/thumb2/17.png" alt="17" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td><a class="th lb-trigger" href="images/photo/5.jpg" data-group="S" data-title=""><img src="images/thumb2/5.png" alt="5" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/6.jpg" data-group="S" data-title=""><img src="images/thumb2/6.png" alt="6" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/7.jpg" data-group="S" data-title=""><img src="images/thumb2/7.png" alt="7" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/8.jpg" data-group="S" data-title=""><img src="images/thumb2/8.png" alt="8" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/18.jpg" data-group="S" data-title=""><img src="images/thumb2/18.png" alt="18" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td><a class="th lb-trigger" href="images/photo/9.jpg" data-group="S" data-title=""><img src="images/thumb2/9.png" alt="9" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/10.jpg" data-group="S" data-title=""><img src="images/thumb2/10.png" alt="10" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/11.jpg" data-group="S" data-title=""><img src="images/thumb2/11.png" alt="11" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/12.jpg" data-group="S" data-title=""><img src="images/thumb2/12.png" alt="12" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/19.jpg" data-group="S" data-title=""><img src="images/thumb2/19.png" alt="19" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td><a class="th lb-trigger" href="images/photo/13.jpg" data-group="S" data-title=""><img src="images/thumb2/13.png" alt="13" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/14.jpg" data-group="S" data-title=""><img src="images/thumb2/14.png" alt="14" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/15.jpg" data-group="S" data-title=""><img src="images/thumb2/15.png" alt="15" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/16.jpg" data-group="S" data-title=""><img src="images/thumb2/16.png" alt="16" border="0" /></a></td>
+            <td><a class="th lb-trigger" href="images/photo/20.jpg" data-group="S" data-title=""><img src="images/thumb2/20.png" alt="20" border="0" /></a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <ul>
+      <li class="twitter"><a href="http://instagram.com/kolect" target="_blank"></a></li>
+      <li class="help"><a href="mailto:info@lucrumdesign.com"></a></li>
+    </ul>
+    <p style="float:right; color:#ffffff; font-size:13px; margin-top:12px;"><a href="mailto:info@lucrumdesign.com"><span class="__cf_email__" data-cfemail="5e373038311e122b3d2c2b331a3b2d373930703d3133">info@LucrumDesign.com</span></a></p>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+(function() {
+  var groups = {}, currentGroup = [], currentIndex = 0;
+  var overlay  = document.getElementById('lb-overlay');
+  var box      = document.getElementById('lb-box');
+  var img      = document.getElementById('lb-img');
+  var caption  = document.getElementById('lb-caption');
+  var counter  = document.getElementById('lb-counter');
+  var btnClose = document.getElementById('lb-close');
+  var btnPrev  = document.getElementById('lb-prev');
+  var btnNext  = document.getElementById('lb-next');
+
+  var triggers = document.querySelectorAll('.lb-trigger');
+  triggers.forEach(function(a) {
+    var g = a.getAttribute('data-group') || 'default';
+    if (!groups[g]) groups[g] = [];
+    a.setAttribute('data-lb-index', groups[g].length);
+    groups[g].push({ src: a.getAttribute('href'), title: a.getAttribute('data-title') || '' });
+  });
+
+  function show() {
+    var item = currentGroup[currentIndex];
+    img.src = item.src;
+    caption.textContent = item.title;
+    counter.textContent = 'Image ' + (currentIndex + 1) + ' of ' + currentGroup.length;
+    btnPrev.style.display = currentIndex > 0 ? 'block' : 'none';
+    btnNext.style.display = currentIndex < currentGroup.length - 1 ? 'block' : 'none';
+  }
+
+  function open(g, idx) {
+    currentGroup = groups[g] || [];
+    currentIndex = idx;
+    overlay.style.display = 'block';
+    box.style.display = 'block';
+    btnClose.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    show();
+  }
+
+  function close() {
+    overlay.style.display = 'none';
+    box.style.display = 'none';
+    btnClose.style.display = 'none';
+    btnPrev.style.display = 'none';
+    btnNext.style.display = 'none';
+    img.src = '';
+    document.body.style.overflow = '';
+  }
+
+  triggers.forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var g = a.getAttribute('data-group') || 'default';
+      var idx = parseInt(a.getAttribute('data-lb-index'), 10);
+      open(g, idx);
+    });
+  });
+
+  overlay.addEventListener('click', close);
+  btnClose.addEventListener('click', function(e) { e.stopPropagation(); close(); });
+  btnPrev.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (currentIndex > 0) { currentIndex--; show(); }
+  });
+  btnNext.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (currentIndex < currentGroup.length - 1) { currentIndex++; show(); }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (overlay.style.display !== 'block') return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft' && currentIndex > 0) { currentIndex--; show(); }
+    if (e.key === 'ArrowRight' && currentIndex < currentGroup.length - 1) { currentIndex++; show(); }
+  });
+})();
+</script>
 </body>
 </html>
-
