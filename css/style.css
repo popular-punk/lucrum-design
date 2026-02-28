@@ -33,9 +33,21 @@ body {
 /* Header spans full container width, centered */
 .siteheader {
   width: 100%;
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
   padding: 24px 0 0 0;
   clear: both;
+}
+
+.siteheader .nav-spacer {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.siteheader .header-content {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
 }
 
 .siteheader .logo {
@@ -50,12 +62,6 @@ body {
   margin: 4px auto 0;
   max-width: 100%;
   height: auto;
-}
-
-/* On graphic/photo pages the header aligns with the right content column */
-.siteheader.offset {
-  padding-left: 160px;
-  text-align: left;
 }
 
 /* Below header: nav left, content right */
@@ -154,7 +160,7 @@ body {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  max-width: 540px;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -334,6 +340,16 @@ a:hover.th { background-color: transparent; }
    MOBILE BREAKPOINTS
    ===================== */
 @media (max-width: 640px) {
+  .siteheader {
+    flex-direction: column;
+  }
+  .siteheader .nav-spacer {
+    display: none;
+  }
+  .siteheader .header-content {
+    width: 100%;
+    text-align: center;
+  }
   .contentrow {
     flex-direction: column;
   }
@@ -362,7 +378,8 @@ a:hover.th { background-color: transparent; }
     line-height: 28px;
   }
 
-  .video-wrapper { max-width: 100%; }
+  .right { width: 100%; min-width: 0; }
+  .video-wrapper { width: 100%; }
 
   .maincontent { max-width: 100%; font-size: 15px; }
 
