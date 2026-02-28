@@ -62,18 +62,21 @@
 
 <div class="maincontainer">
 
-    <div class="siteheader offset">
-    <img class="logo" src="images/head_lucrum.png" alt="Lucrum Design" />
-    <img class="tagline" src="images/tag.png" alt="Web | Brand Identity | Graphics" />
+  <div class="siteheader">
+    <div class="nav-spacer"></div>
+    <div class="header-content">
+      <img class="logo" src="images/head_lucrum.png" alt="Lucrum Design" />
+      <img class="tagline" src="images/tag.png" alt="Web | Brand Identity | Graphics" />
+    </div>
   </div>
 
   <div class="contentrow">
     <div class="left">
       <div class="navigation">
         <ul>
-          <li><a href="index.html" >Home</a></li>
-          <li><a href="about.html" >About us</a></li>
-          <li><a href="graphic.html" >Graphic</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="graphic.html">Graphic</a></li>
           <li><a href="photo.html" class="onpage">Photo</a></li>
         </ul>
       </div>
@@ -119,7 +122,7 @@
       <li class="twitter"><a href="http://instagram.com/kolect" target="_blank"></a></li>
       <li class="help"><a href="mailto:info@lucrumdesign.com"></a></li>
     </ul>
-    <p style="float:right; color:#ffffff; font-size:13px; margin-top:12px;"><a href="mailto:info@lucrumdesign.com"><span class="__cf_email__" data-cfemail="5e373038311e122b3d2c2b331a3b2d373930703d3133">info@LucrumDesign.com</span></a></p>
+    <p style="float:right; color:#ffffff; font-size:13px; margin-top:12px;">info@lucrumdesign.com</p>
   </div>
 
 </div>
@@ -135,7 +138,6 @@
   var btnClose = document.getElementById('lb-close');
   var btnPrev  = document.getElementById('lb-prev');
   var btnNext  = document.getElementById('lb-next');
-
   var triggers = document.querySelectorAll('.lb-trigger');
   triggers.forEach(function(a) {
     var g = a.getAttribute('data-group') || 'default';
@@ -143,7 +145,6 @@
     a.setAttribute('data-lb-index', groups[g].length);
     groups[g].push({ src: a.getAttribute('href'), title: a.getAttribute('data-title') || '' });
   });
-
   function show() {
     var item = currentGroup[currentIndex];
     img.src = item.src;
@@ -152,7 +153,6 @@
     btnPrev.style.display = currentIndex > 0 ? 'block' : 'none';
     btnNext.style.display = currentIndex < currentGroup.length - 1 ? 'block' : 'none';
   }
-
   function open(g, idx) {
     currentGroup = groups[g] || [];
     currentIndex = idx;
@@ -162,7 +162,6 @@
     document.body.style.overflow = 'hidden';
     show();
   }
-
   function close() {
     overlay.style.display = 'none';
     box.style.display = 'none';
@@ -172,7 +171,6 @@
     img.src = '';
     document.body.style.overflow = '';
   }
-
   triggers.forEach(function(a) {
     a.addEventListener('click', function(e) {
       e.preventDefault();
@@ -182,7 +180,6 @@
       open(g, idx);
     });
   });
-
   overlay.addEventListener('click', close);
   btnClose.addEventListener('click', function(e) { e.stopPropagation(); close(); });
   btnPrev.addEventListener('click', function(e) {
@@ -193,7 +190,6 @@
     e.stopPropagation();
     if (currentIndex < currentGroup.length - 1) { currentIndex++; show(); }
   });
-
   document.addEventListener('keydown', function(e) {
     if (overlay.style.display !== 'block') return;
     if (e.key === 'Escape') close();
