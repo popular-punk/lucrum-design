@@ -63,10 +63,36 @@
 
 #landingImage {
   display: block;
-  width: 680px;          /* set your desired width */
+  width: 680px;          /* desktop width */
   height: auto;          /* keeps aspect ratio */
-  margin-top: 20px;      /* push down */
-  margin-left: -10px;     /* push right (use negative to push left) */
+  margin-top: 20px;
+  margin-left: -10px;
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE
+   ============================================= */
+@media (max-width: 768px) {
+
+  /* Let the animation wrap flow naturally without fixed offsets */
+  .text-anim-wrap {
+    justify-content: flex-start;
+    padding: 12px 16px;
+  }
+
+  .text-anim-stage {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  /* Scale the image to fill available width */
+  #landingImage {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
 }
 
 </style>
@@ -120,7 +146,7 @@
   <div id="footer">
     <ul>
       <li class="twitter"><a href="http://instagram.com/kolect" target="_blank"></a></li>
-      <li class="help"><a href="mailto:info@lucrumdesign.com"></a></li>
+      <li class="help"><a href="/cdn-cgi/l/email-protection#fa93949c95ba968f99888f979e9f89939d94d4999597"></a></li>
     </ul>
   </div>
 
@@ -130,7 +156,7 @@
      TEXT ANIMATION SCRIPT
      Edit only the CONFIG block below.
      ============================================= -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function () {
 
   /* -----------------------------------------------
@@ -306,7 +332,7 @@
         phraseIndex++;
         if (phraseIndex >= CONFIG.phrases.length) {
           if (CONFIG.loop) { phraseIndex = 0; } else { return; }
-        }
+               }
         runNext();
       });
   }
