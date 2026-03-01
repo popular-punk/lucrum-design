@@ -22,6 +22,54 @@
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
+<style>
+/* =============================================
+   TEXT ANIMATION STYLES
+   ============================================= */
+
+.text-anim-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+}
+
+/* Stage is relatively positioned; both words are absolute inside it */
+.text-anim-stage {
+  position: relative;
+  display: inline-block;
+  margin-top: -50px;
+  margin-left: 266px;
+}
+
+.text-anim-stage span {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+#landingImage {
+  display: block;
+  width: 680px;          /* set your desired width */
+  height: auto;          /* keeps aspect ratio */
+  margin-top: 20px;      /* push down */
+  margin-left: -10px;     /* push right (use negative to push left) */
+}
+
+</style>
 </head>
 <body>
 
@@ -30,10 +78,20 @@
   <div class="siteheader">
     <div class="nav-spacer"></div>
     <div class="header-content">
-      <img class="logo" src="images/head_lucrum.png" alt="Lucrum Design" />
-      <img class="tagline" src="images/tag.png" alt="Web | Brand Identity | Graphics" />
+      <img class="logo" src="images/head_lucrum2.jpg" alt="Lucrum Design" />
     </div>
   </div>
+
+  <!-- =============================================
+       TEXT ANIMATION — paste this block anywhere
+       ============================================= -->
+  <div class="text-anim-wrap">
+    <div class="text-anim-stage" id="textAnimStage">
+      <span id="word1"></span>
+      <span id="word2"></span>
+    </div>
+  </div>
+  <!-- END TEXT ANIMATION -->
 
   <div class="contentrow">
     <div class="left">
@@ -47,14 +105,15 @@
       </div>
     </div>
     <div class="right">
-      <div class="video-wrapper">
+      <img src="images/landing.jpg" alt="Description" id="landingImage" />
+<!--      <div class="video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/uytroc2xwD4?rel=0&autoplay=1&mute=1"
           frameborder="0"
           allowfullscreen
           allow="autoplay; encrypted-media">
-        </iframe>
-      </div>
+        </iframe> 
+      </div> -->
     </div>
   </div>
 
@@ -66,5 +125,199 @@
   </div>
 
 </div>
+
+<!-- =============================================
+     TEXT ANIMATION SCRIPT
+     Edit only the CONFIG block below.
+     ============================================= -->
+<script>
+(function () {
+
+  /* -----------------------------------------------
+     CONFIG — edit these values to customise
+  ----------------------------------------------- */
+  var CONFIG = {
+
+    // Two-word phrases: [word1, word2]
+    // Word 1 fades in first, word 2 follows after word2Delay.
+    phrases: [
+      ["NURTURE",      "IDEAS"],
+      ["LOOK",       "CLOSELY"],
+      ["GATHER",      "INTELLIGENCE"],
+      ["CRAFT",         "NARRATIVES"],
+      ["BUILD",       "BRANDS"],
+      ["VISUALIZE",         "STRATEGIES"],
+      ["TELL",         "STORIES"],
+      ["DEFINE",         "PRIORITIES"]
+    ],
+
+    // Gap between the end of word 1 and the start of word 2.
+    // This is always the same fixed pixel value regardless of word length.
+    wordGapPx: 15,
+
+    // Timing (milliseconds)
+    word2Delay:   400,   // delay before word 2 fades in after word 1 starts
+    holdDuration: 1500,  // how long the full phrase stays visible
+    exitStagger:  0,    // gap between word 1 and word 2 fading out
+    gapBetween:   80,   // pause after fade-out before next phrase starts
+
+    // Typography
+    fontFamily:    "Helvetica, 'Arial', sans-serif",
+    fontSize:      "1.5rem",
+    fontWeight:    "450",
+    letterSpacing: "0.05em",
+    textTransform: "uppercase",
+    color:         "#fff",
+
+    // Fade durations (seconds)
+    inDuration:  "0.5s",
+    outDuration: "0.4s",
+
+    // Loop forever?
+    loop: true
+  };
+  /* ----------------------------------------------- */
+
+
+  /* -- Engine -- */
+
+  var w1    = document.getElementById("word1");
+  var w2    = document.getElementById("word2");
+  var stage = document.getElementById("textAnimStage");
+
+  if (!w1 || !w2 || !stage) { return; }
+
+  // Typography string reused for both spans and the probe element
+  var typoCss =
+    "font-family:"    + CONFIG.fontFamily    + ";" +
+    "font-size:"      + CONFIG.fontSize      + ";" +
+    "font-weight:"    + CONFIG.fontWeight    + ";" +
+    "letter-spacing:" + CONFIG.letterSpacing + ";" +
+    "text-transform:" + CONFIG.textTransform + ";" +
+    "color:"          + CONFIG.color;
+
+  // Apply styles to spans
+  var baseSpanStyle = typoCss + ";position:absolute;top:0;white-space:nowrap;opacity:0;";
+  w1.setAttribute("style", baseSpanStyle + "left:0;");
+  w2.setAttribute("style", baseSpanStyle);
+
+  // Hidden probe element for measuring rendered text widths
+  var probe = document.createElement("span");
+  probe.setAttribute("style",
+    "position:absolute;top:-9999px;left:-9999px;visibility:hidden;white-space:nowrap;" + typoCss
+  );
+  document.body.appendChild(probe);
+
+  function measureText(text) {
+    probe.textContent = text;
+    return probe.offsetWidth;
+  }
+
+  // Pre-measure all phrases to size the stage wide enough for the longest one
+  var maxTotalWidth = 0;
+  for (var i = 0; i < CONFIG.phrases.length; i++) {
+    var total = measureText(CONFIG.phrases[i][0]) + CONFIG.wordGapPx + measureText(CONFIG.phrases[i][1]);
+    if (total > maxTotalWidth) { maxTotalWidth = total; }
+  }
+
+  // Set stage dimensions (height from font size, width from longest phrase)
+  var fsNum  = parseFloat(window.getComputedStyle(probe).fontSize);
+  document.body.removeChild(probe);
+
+  stage.style.width  = maxTotalWidth + "px";
+  stage.style.height = (fsNum * 1.3) + "px";
+
+  // ---- Animation helpers ----
+
+  var phraseIndex = 0;
+
+  function resetWord(el) {
+    el.style.animation = "none";
+    void el.offsetWidth;
+    el.style.opacity = "0";
+  }
+
+  function fadeIn(el, text, delayMs) {
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        el.textContent     = text;
+        el.style.animation = "none";
+        void el.offsetWidth;
+        el.style.animation = "fadeIn " + CONFIG.inDuration + " ease forwards";
+        el.addEventListener("animationend", function handler() {
+          el.removeEventListener("animationend", handler);
+          resolve();
+        });
+      }, delayMs);
+    });
+  }
+
+  function fadeOut(el, delayMs) {
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        el.style.animation = "none";
+        void el.offsetWidth;
+        el.style.animation = "fadeOut " + CONFIG.outDuration + " ease forwards";
+        el.addEventListener("animationend", function handler() {
+          el.removeEventListener("animationend", handler);
+          resetWord(el);
+          resolve();
+        });
+      }, delayMs);
+    });
+  }
+
+  function wait(ms) {
+    return new Promise(function (resolve) { setTimeout(resolve, ms); });
+  }
+
+  // ---- Main cycle ----
+
+  function runNext() {
+    var phrase = CONFIG.phrases[phraseIndex];
+
+    // Measure this phrase's word 1 and position word 2 exactly CONFIG.wordGapPx away.
+    // This runs fresh every phrase so the gap is always identical.
+    var tempProbe = document.createElement("span");
+    tempProbe.setAttribute("style",
+      "position:absolute;top:-9999px;left:-9999px;visibility:hidden;white-space:nowrap;" + typoCss
+    );
+    tempProbe.textContent = phrase[0];
+    document.body.appendChild(tempProbe);
+    var w1Width = tempProbe.offsetWidth;
+    document.body.removeChild(tempProbe);
+
+    // Pin word 2 at: word1Width + fixed gap
+    w2.style.left = (w1Width + CONFIG.wordGapPx) + "px";
+
+    // Fade in word 1, then word 2 after stagger
+    var p1 = fadeIn(w1, phrase[0], 0);
+    var p2 = fadeIn(w2, phrase[1], CONFIG.word2Delay);
+
+    Promise.all([p1, p2])
+      .then(function () { return wait(CONFIG.holdDuration); })
+      .then(function () {
+        var o1 = fadeOut(w1, 0);
+        var o2 = fadeOut(w2, CONFIG.exitStagger);
+        return Promise.all([o1, o2]);
+      })
+      .then(function () { return wait(CONFIG.gapBetween); })
+      .then(function () {
+        phraseIndex++;
+        if (phraseIndex >= CONFIG.phrases.length) {
+          if (CONFIG.loop) { phraseIndex = 0; } else { return; }
+        }
+        runNext();
+      });
+  }
+
+  resetWord(w1);
+  resetWord(w2);
+  runNext();
+
+})();
+</script>
+<!-- END TEXT ANIMATION SCRIPT -->
+
 </body>
 </html>
