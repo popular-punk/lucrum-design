@@ -55,6 +55,12 @@ body {
   height: auto;
   display: block;
   margin: 0 auto;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .siteheader .tagline {
@@ -256,8 +262,8 @@ div#footer ul li a {
   line-height: 46px;
 }
 
-div#footer ul li.twitter a { background: url('../images/icons/insta.png') no-repeat top left; }
-div#footer ul li.twitter a:hover { background: url('../images/icons/insta2.png') no-repeat top left; }
+div#footer ul li.instagram a { background: url('../images/icons/insta.png') no-repeat top left; }
+div#footer ul li.instagram a:hover { background: url('../images/icons/insta3.png') no-repeat top left; }
 div#footer ul li.help a { background: url('../images/icons/question.png') no-repeat top left; }
 div#footer ul li.help a:hover { background: url('../images/icons/question2.png') no-repeat top left; }
 div#footer ul li.press a { background: url('../images/icons/twit.jpg') no-repeat top left; }
