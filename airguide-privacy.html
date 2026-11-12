@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AirGuide Privacy Policy</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.65; background: Canvas; color: CanvasText; }
+    main { max-width: 68ch; margin: 0 auto; padding: clamp(1.25rem, 5vw, 4rem); }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 0 0 1.5rem; }
+    h2 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 .5rem; }
+    p { margin: 0; }
+    section + section { margin-top: 1.5rem; }
+    a { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AirGuide Privacy Policy</h1>
+    <section>
+      <h2>About this policy</h2>
+      <p>AirGuide is an independent app that creates scheduled channels from a Plex, Jellyfin or Emby library you are authorized to access. This policy describes the current app. Effective November 6, 2026.</p>
+    </section>
+    <section>
+      <h2>Information used to run the app</h2>
+      <p>AirGuide uses your media-server authorization token, available server information, and library metadata such as titles, genres, ratings, durations, and episode information to connect, create channels, and play media. Your Plex password is entered on Plex’s sign-in page. For Jellyfin and Emby, AirGuide sends your username and password directly to the server address you enter to obtain a sign-in token; your password is not stored.</p>
+    </section>
+    <section>
+      <h2>Information stored on your device</h2>
+      <p>Provider credentials are stored in the iOS Keychain. Jellyfin and Emby credentials include its token, server and user identifiers, and connection address; passwords are not retained. The selected provider and last server addresses are saved in local preferences. Channel schedules, custom channel rules, and library metadata used by the channel builder are stored in the app’s local files, including a backup created during a channel-lineup migration. Preferences include a randomly generated app installation identifier, selected server, last channel, migration status, catalog selection, mute and caption preferences, last-close time, and a one-way account-identity fingerprint used to separate cached lineups when accounts change. Account-specific channel and library snapshots are retained locally when you switch accounts. Plex resource tokens are held in memory; Jellyfin and Emby session credentials are retained in Keychain until you sign out. System-managed networking and media caches may also be created.</p>
+    </section>
+    <section>
+      <h2>Connections and sharing</h2>
+      <p>AirGuide connects directly to Plex for sign-in, account identification, and server discovery, and to the selected Plex Media Server, Jellyfin server or Emby server for authentication where applicable, library requests, streaming, and server-side video conversion. These connections expose your IP address and send identifiers, authorization tokens, app/platform information, and requested media identifiers as needed. Plex and the server operator may process or log this activity under their own policies. AirGuide has no developer-operated backend or advertising SDK, and does not sell your data or use it for advertising.</p>
+    </section>
+    <section>
+      <h2>Connected Devices</h2>
+      <p>Google Cast SDK discovers Chromecast receivers on your local network and manages selected Cast sessions. Google Cast may process device identifiers, interactions with casting features, and diagnostic data for casting functionality and analytics. The receiver may process device and session information under its own policies. When you choose AirPlay, Apple’s media system routes playback to that device. The selected receiver may receive the media stream, playback information, and access information needed to play it. Choose a receiver you trust and manage the connection through Connected Devices.</p>
+    </section>
+    <section>
+      <h2>Purchases and trial access</h2>
+      <p>AirGuide offers a seven-day trial starting after your first successful media-server connection and an optional non-consumable lifetime purchase. No automatic charges occur at trial end. Trial start, saved time bounds and expiration status are stored in this device’s Keychain. Apple processes purchases and restoration; signed StoreKit transactions determine lifetime access. AirGuide checks an Apple HTTPS endpoint for server time to supplement device-clock protection. This exposes your network address to Apple but sends no media-server credentials or library contents. Trial storage is not synchronized across devices; lifetime purchases restore through your Apple Account.</p>
+    </section>
+    <section>
+      <h2>Playback and diagnostics</h2>
+      <p>Media is streamed from your server rather than uploaded to the AirGuide developer. AirGuide does not offer offline video downloads. Development builds may show connection and playback diagnostics in Xcode; these are not automatically sent to an AirGuide service. Apple may process system diagnostics according to your device settings. Avoid sharing logs that contain personal information.</p>
+    </section>
+    <section>
+      <h2>Your choices and retention</h2>
+      <p>You can sign out in Settings to remove the selected provider’s stored credential and stop playback. Signing out leaves saved channel metadata and preferences on the device. Deleting the app removes its app-container data; sign out first because Keychain credentials can persist after app deletion. Device or cloud backups may retain copies under your backup settings. Manage authorization and server-held data through your provider or server administrator. AirGuide cannot delete records held by Plex or your server operator.</p>
+    </section>
+    <section>
+      <h2>Policy updates</h2>
+      <p>The effective date will change when this policy is revised. Review this page after app updates for changes to data handling.</p>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <p>For privacy questions or data deletion requests, email <a href="mailto:appledevsupport@gmail.com">appledevsupport@gmail.com</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
